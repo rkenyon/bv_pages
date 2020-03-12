@@ -1,8 +1,8 @@
 name: Pandoc
-# on:
-#     pull_request:
-#       branch:
-#         - master
+on:
+    pull_request:
+      branch:
+        - master
   
 jobs:
   pandoc_conversion:
