@@ -1,0 +1,32 @@
+name: Pandoc
+on:
+    pull_request:
+      branch:
+        - master
+  
+jobs:
+  pandoc_conversion:
+    runs-on: ubuntu-18.04
+    steps:
+      # Checkout
+      - name: checkout
+        uses: actions/checkout@v2
+      # Run Pandoc
+      - name: pandoc
+        uses: docker://pandoc/core:2.9
+        with:
+          args: '-f gfm -t html'
+      # Commit 
+      - name: commit
+        run: |
+          git config --local user.email "test@github.com"
+          git config --local user.name "GitHub Action test"
+          git add ./output
+          git commit -m "Add changes"
+      # Push Changes
+      - name: push
+        uses: ad-m/github-push-action@master
+        with:
+          branch: master
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
