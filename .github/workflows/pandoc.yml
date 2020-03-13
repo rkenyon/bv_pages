@@ -23,7 +23,32 @@ jobs:
       - name: pandoc
         uses: docker://pandoc/core:2.9
         with:
+          args: '-f gfm -t html pages/announcements.md -o html/announncements.html'
+      # Run Pandoc
+      - name: pandoc
+        uses: docker://pandoc/core:2.9
+        with:
+          args: '-f gfm -t html pages/citations.md -o html/citations.html'
+      # Run Pandoc
+      - name: pandoc
+        uses: docker://pandoc/core:2.9
+        with:
           args: '-f gfm -t html pages/contact.md -o html/contact.html'
+      # Run Pandoc
+      - name: pandoc
+        uses: docker://pandoc/core:2.9
+        with:
+          args: '-f gfm -t html pages/publications.md -o html/publications.html'
+      # Run Pandoc
+      - name: pandoc
+        uses: docker://pandoc/core:2.9
+        with:
+          args: '-f gfm -t html pages/related-resources.md -o html/related-resources.html'
+      # Run Pandoc
+      - name: pandoc
+        uses: docker://pandoc/core:2.9
+        with:
+          args: '-f gfm -t html pages/team.md -o html/team.html'
       # Commit 
       - name: commit
         run: |
