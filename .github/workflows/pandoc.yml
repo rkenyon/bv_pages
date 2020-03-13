@@ -23,7 +23,7 @@ jobs:
       - name: pandoc
         uses: docker://pandoc/core:2.9
         with:
-          args: '-f gfm -t html pages/announcements.md -o html/announncements.html'
+          args: '-f gfm -t html pages/annoucements.md -o html/annoucements.html'
       # Run Pandoc
       - name: pandoc
         uses: docker://pandoc/core:2.9
