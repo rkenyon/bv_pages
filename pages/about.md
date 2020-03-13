@@ -1,3 +1,1 @@
 # About Us
-
-Hello
