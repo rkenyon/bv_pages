@@ -1,5 +1,8 @@
 name: Pandoc
 on:
+    push:
+      branch:
+        - master
     pull_request:
       branch:
         - master
@@ -15,13 +18,13 @@ jobs:
       - name: pandoc
         uses: docker://pandoc/core:2.9
         with:
-          args: '-f gfm -t html'
+          args: '-f gfm -t html pages/about.md -o html/about.html'
       # Commit 
       - name: commit
         run: |
           git config --local user.email "test@github.com"
           git config --local user.name "GitHub Action test"
-          git add ./output
+          git add ./html
           git commit -m "Add changes"
       # Push Changes
       - name: push
