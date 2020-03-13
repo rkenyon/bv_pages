@@ -19,6 +19,9 @@ jobs:
         uses: docker://pandoc/core:2.9
         with:
           args: '-f gfm -t html pages/about.md -o html/about.html'
+      # Run Pandoc
+      - name: pandoc
+        uses: docker://pandoc/core:2.9
         with:
           args: '-f gfm -t html pages/contact.md -o html/contact.html'
       # Commit 
